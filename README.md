@@ -43,3 +43,13 @@
 | PUT    | /travelPlan/:travelPlanId                      | YES   | admin | Update One travelPlan              | `club_Name`,`player_sheets`, `coach`, `location`, `sending_off`  | {message: 'Travel Plan updated'} |
 | DELETE | /travelPlan/:travelPlanId                      | YES   | admin | Delete one travelPlan              |                                                 | {message: 'Travel Plan deleted'}    |
 
+### TravelPlan Endpoints
+
+| METHOD | ENDPOINT                           | TOKEN | ROLE  | DESCRIPTION                 | POST PARAMS                                     | RETURNS                        |
+|--------|------------------------------------|-------|-------|-----------------------------|-------------------------------------------------|--------------------------------|
+| GET    | /travelPlan                              | YES   | user  | Get All travelPlans               | `query params`                                  | [{travelPlan}]                       |
+| GET    | /travelPlan/:travelPlanId                      | YES   | user  | Get One travelPlan                |                                                 | {travelPlan}                         |
+| POST   | /travelPlan                              | YES   | admin | Create One travelPlan              | `club_Name`,`player_sheets`, `coach`, `location`, `sending_off`  | {travelPlan}                |
+| PUT    | /travelPlan/:travelPlanId                      | YES   | admin | Update One travelPlan              | `club_Name`,`player_sheets`, `coach`, `location`, `sending_off`  | {message: 'Travel Plan updated'} |
+| DELETE | /travelPlan/:travelPlanId                      | YES   | admin | Delete one travelPlan              |                                                 | {message: 'Travel Plan deleted'}    |
+
