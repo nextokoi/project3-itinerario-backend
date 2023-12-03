@@ -26,9 +26,20 @@
 
 | METHOD | ENDPOINT                           | TOKEN | ROLE  | DESCRIPTION                 | POST PARAMS                                     | RETURNS                        |
 |--------|------------------------------------|-------|-------|-----------------------------|-------------------------------------------------|--------------------------------|
-| GET    | /flight                              | YES   | user  | Get All flights               | `query params`                                  | [{team}]                       |
-| GET    | /flight/:flightId                      | YES   | user  | Get One flight                |                                                 | {team}                         |
-| POST   | /flight                              | YES   | admin | Create One flight              | `club_Name`,`player_sheets`, `coach`, `location`, `sending_off`  | {team}                |
-| PUT    | /flight/:flightId                      | YES   | admin | Update One flight              | `club_Name`,`player_sheets`, `coach`, `location`, `sending_off`  | {message: 'Team updated'} |
-| DELETE | /flight/:flightId                      | YES   | admin | Delete one flight              |                                                 | {message: 'Team deleted'}    |
+| GET    | /flight                              | YES   | user  | Get All flights               | `query params`                                  | [{flight}]                       |
+| GET    | /flight/:flightId                      | YES   | user  | Get One flight                |                                                 | {flight}                         |
+| POST   | /flight                              | YES   | admin | Create One flight              | `club_Name`,`player_sheets`, `coach`, `location`, `sending_off`  | {flight}                |
+| PUT    | /flight/:flightId                      | YES   | admin | Update One flight              | `club_Name`,`player_sheets`, `coach`, `location`, `sending_off`  | {message: 'Flight updated'} |
+| DELETE | /flight/:flightId                      | YES   | admin | Delete one flight              |                                                 | {message: 'flight deleted'}    |
+
+
+### TravelPlan Endpoints
+
+| METHOD | ENDPOINT                           | TOKEN | ROLE  | DESCRIPTION                 | POST PARAMS                                     | RETURNS                        |
+|--------|------------------------------------|-------|-------|-----------------------------|-------------------------------------------------|--------------------------------|
+| GET    | /travelPlan                              | YES   | user  | Get All travelPlans               | `query params`                                  | [{travelPlan}]                       |
+| GET    | /travelPlan/:travelPlanId                      | YES   | user  | Get One travelPlan                |                                                 | {travelPlan}                         |
+| POST   | /travelPlan                              | YES   | admin | Create One travelPlan              | `club_Name`,`player_sheets`, `coach`, `location`, `sending_off`  | {travelPlan}                |
+| PUT    | /travelPlan/:travelPlanId                      | YES   | admin | Update One travelPlan              | `club_Name`,`player_sheets`, `coach`, `location`, `sending_off`  | {message: 'Travel Plan updated'} |
+| DELETE | /travelPlan/:travelPlanId                      | YES   | admin | Delete one travelPlan              |                                                 | {message: 'Travel Plan deleted'}    |
 
