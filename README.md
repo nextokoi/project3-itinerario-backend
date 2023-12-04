@@ -43,7 +43,7 @@
 | PUT    | /travelPlan/:travelPlanId                      | YES   | admin | Update One travelPlan              | `club_Name`,`player_sheets`, `coach`, `location`, `sending_off`  | {message: 'Travel Plan updated'} |
 | DELETE | /travelPlan/:travelPlanId                      | YES   | admin | Delete one travelPlan              |                                                 | {message: 'Travel Plan deleted'}    |
 
-### TravelPlan Endpoints
+### Activity Endpoints
 
 | METHOD | ENDPOINT                           | TOKEN | ROLE  | DESCRIPTION                 | POST PARAMS                                     | RETURNS                        |
 |--------|------------------------------------|-------|-------|-----------------------------|-------------------------------------------------|--------------------------------|
