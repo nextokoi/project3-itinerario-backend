@@ -1,5 +1,7 @@
 # project3-itinerario :)
 
+![database](https://github.com/nextokoi/project3-itinerario/assets/85761293/d1889c57-bdbd-459a-9ca0-e2d3e042d6b8)
+
 ### User Signup/Login
 
 | METHOD | ENDPOINT          | TOKEN | ROLE  | DESCRIPTION        | POST PARAMS                                                                                                         | RETURNS                |
