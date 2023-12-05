@@ -1,0 +1,6 @@
+const User = require('../api/models/user.model.js')
+const Flight = require('../api/models/flight.model.js')
+const Activity = require('../api/models/activity.model.js')
+const TravelPlanning = require('../api/models/travelPlanning.model.js')
+const TravelDay = require('../api/models/travelDay.model.js')
+const TravelLocation = require('../api/models/travelLocation.model.js')
