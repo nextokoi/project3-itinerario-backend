@@ -1,6 +1,6 @@
 const Flight = require("../models/flight.model")
 
-const getAllFlight = async (req, res) => {
+const getAllFlights = async (req, res) => {
     try {
         const flight = await Flight.findAll({ where: req.query })
         if (flight) {
@@ -77,7 +77,7 @@ const deleteFlight = async (req, res) => {
 
 module.exports = {
 
-    getAllFlight,
+    getAllFlights,
     getOneFlight,
     createFlight,
     updateFlight,
