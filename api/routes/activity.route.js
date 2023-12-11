@@ -8,11 +8,13 @@ const {
     deleteActivity
 } = require('../controllers/activity.controller')
 
+const { checkAdmin } = require('../middlewares/authorization.middleware')
+
 router
     .get('/', getAllActivities)
     .get('/:activityId', getOneActivity)
-    .post('/', createActivity)
-    .put('/:activityId', updateActivity)
-    .delete('/:activityId', deleteActivity)
+    .post('/', checkAdmin, createActivity)
+    .put('/:activityId', checkAdmin, updateActivity)
+    .delete('/:activityId', checkAdmin, deleteActivity)
 
 module.exports = router

@@ -8,11 +8,13 @@ const {
     deleteTravelDay
 } = require('../controllers/travelDay.controller')
 
+const { checkAdmin } = require('../middlewares/authorization.middleware')
+
 router
     .get('/', getAllTravelDays)
     .get('/:travelDayId', getOneTravelDay)
-    .post('/', createTravelDay)
-    .put('/:travelDayId', updateTravelDay)
-    .delete('/:travelDayId', deleteTravelDay)
+    .post('/', checkAdmin, createTravelDay)
+    .put('/:travelDayId', checkAdmin, updateTravelDay)
+    .delete('/:travelDayId', checkAdmin, deleteTravelDay)
 
 module.exports = router

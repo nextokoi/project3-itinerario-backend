@@ -8,11 +8,13 @@ const {
     deleteTravelLocation
 } = require('../controllers/travelLocation.controller')
 
+const { checkAdmin } = require('../middlewares/authorization.middleware')
+
 router
     .get('/', getAllTravelLocations)
     .get('/:travelLocationId', getOneTravelLocation)
-    .post('/', createTravelLocation)
-    .put('/:travelLocationId', updateTravelLocation)
-    .delete('/:travelLocationId', deleteTravelLocation)
+    .post('/', checkAdmin, createTravelLocation)
+    .put('/:travelLocationId', checkAdmin, updateTravelLocation)
+    .delete('/:travelLocationId', checkAdmin, deleteTravelLocation)
 
 module.exports = router

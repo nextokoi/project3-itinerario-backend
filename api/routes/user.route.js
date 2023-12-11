@@ -12,24 +12,17 @@ const {
     deleteProfile
 } = require('../controllers/user.controller')
 
-
-
-//admin Routes 
-
+const { checkAdmin } = require('../middlewares/authorization.middleware')
 
 router
-    .get('/', getAllUsers)
+    .get('/', checkAdmin, getAllUsers)
     .get('/profile', getOwnProfile)
-    .get('/:userId', getOneUser)
-    .post('/', createUser)
+    .get('/:userId', checkAdmin, getOneUser)
+    .post('/', checkAdmin, createUser)
     .put('/profile', updateOwnProfile)
     .put('/password', updatePassword)
-    .put('/:userId', updateUser)
+    .put('/:userId', checkAdmin, updateUser)
     .delete('/profile', deleteProfile)
-    .delete('/:userId', deleteUser)
-
-
-
-//admin profile
+    .delete('/:userId', checkAdmin, deleteUser)
 
 module.exports = router

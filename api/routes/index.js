@@ -8,15 +8,17 @@ const travelDayRouter = require('./travelDay.route')
 const travelPlanningRouter = require('./travelPlanning.route')
 const travelLocationRouter = require('./travelLocation.route')
 
+const { checkAuth } = require('../middlewares/authorization.middleware')
+
 
 router
-    .use('/user', userRouter)
-    .use('/activity', activityRouter)
-    .use('/flight', flightRouter)
-    .use('/travelDay', travelDayRouter)
-    .use('/travelPlanning', travelPlanningRouter)
-    .use('/travelLocation', travelLocationRouter)
-    .use('/auth', authRouter)
+    .use('/user', checkAuth, userRouter)
+    .use('/activity', checkAuth, activityRouter)
+    .use('/flight', checkAuth, flightRouter)
+    .use('/travelDay', checkAuth, travelDayRouter)
+    .use('/travelPlanning', checkAuth, travelPlanningRouter)
+    .use('/travelLocation', checkAuth, travelLocationRouter)
+    .use('/auth', checkAuth, authRouter)
 
 
 module.exports = router
