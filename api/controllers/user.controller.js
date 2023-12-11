@@ -47,7 +47,22 @@ const getOwnProfile = async(req,res)=>{
 
 const createUser = async(req,res)=>{
     try {
-        const user = await User.create(req.body)
+        const { username, email, password, role } = req.body
+
+        if (password.length < 8){
+            return res.status(400).json({ message: 'Password too short' })
+        }
+
+        const salt = bcrypt.genSaltSync(parseInt(process.env.SALTROUNDS))
+        const encrypted = bcrypt.hashSync(password, salt)
+
+        const user = await User.create({
+            email: email,
+            password: encrypted,
+            username: username,
+            role: role
+        })
+
         if(user){
             return res.status(200).json(user)
         }else{
