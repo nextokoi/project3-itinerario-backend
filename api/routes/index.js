@@ -18,7 +18,7 @@ router
     .use('/travelDay', checkAuth, travelDayRouter)
     .use('/travelPlanning', checkAuth, travelPlanningRouter)
     .use('/travelLocation', checkAuth, travelLocationRouter)
-    .use('/auth', checkAuth, authRouter)
+    .use('/auth', authRouter)
 
 
 module.exports = router
