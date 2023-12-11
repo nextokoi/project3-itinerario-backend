@@ -2,7 +2,7 @@ const router = require('express').Router()
 
 const userRouter = require('./user.route')
 const activityRouter = require('./activity.route')
-// const authRouter = require('./auth.route')
+const authRouter = require('./auth.route')
 const flightRouter = require('./flight.route')
 const travelDayRouter = require('./travelDay.route')
 const travelPlanningRouter = require('./travelPlanning.route')
@@ -16,6 +16,7 @@ router
     .use('/travelDay', travelDayRouter)
     .use('/travelPlanning', travelPlanningRouter)
     .use('/travelLocation', travelLocationRouter)
+    .use('/auth', authRouter)
 
 
 module.exports = router
