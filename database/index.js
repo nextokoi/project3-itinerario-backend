@@ -1,4 +1,4 @@
-const { Sequelize } = require("sequelize")
+const { Sequelize, json } = require("sequelize")
 
 const connection = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
   host: process.env.DB_HOST,
@@ -18,7 +18,7 @@ const checkConnection = async () => {
 
 const syncModels = async () => {
   try {
-    await connection.sync({ force: false })
+    await connection.sync({ alter: false })
     console.log('Models synched!')
   } catch (error) {
     throw error

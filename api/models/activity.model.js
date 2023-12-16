@@ -25,6 +25,9 @@ const Activity = connection.define('activity',{
     url : {
         type : DataTypes.STRING,
         
+    },
+    imageURL : {
+        type: DataTypes.STRING
     }
 },{
     timestamps : false

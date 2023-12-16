@@ -17,7 +17,7 @@ router
     .use('/flight', checkAuth, flightRouter)
     .use('/travelDay', checkAuth, travelDayRouter)
     .use('/travelPlanning', checkAuth, travelPlanningRouter)
-    .use('/travelLocation', checkAuth, travelLocationRouter)
+    .use('/travelLocation', travelLocationRouter)
     .use('/auth', authRouter)
 
 
