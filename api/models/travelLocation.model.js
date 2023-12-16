@@ -16,6 +16,9 @@ const TravelLocation = connection.define('travelLocation',{
         type: DataTypes.STRING,
         notNull : true
     },
+    countryCode : {
+        type: DataTypes.STRING,
+    },
     imageURL : {
         type: DataTypes.STRING
     }
