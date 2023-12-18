@@ -28,10 +28,28 @@ const getOneTravelPlanning = async (req, res) => {
     }
 }
 
+const getOwnTravelPlanning = async (req, res) => {
+    try {
+        const travelPlanning = await TravelPlanning.findAll({
+            where:{
+                userId : res.locals.user.id
+            }
+            })
+        if (travelPlanning) {
+            return res.status(200).json(travelPlanning)
+        } else {
+            return res.status(404).send("TravelPlanning not found")
+        }
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+}
+
 
 const createTravelPlanning = async (req, res) => {
     try {
         const travelPlanning = await TravelPlanning.create(req.body)
+        travelPlanning.setUsers(res.locals.user)
         if (travelPlanning) {
             return res.status(200).json(travelPlanning)
         } else {
@@ -80,6 +98,7 @@ module.exports = {
 
     getAllTravelPlannings,
     getOneTravelPlanning,
+    getOwnTravelPlanning,
     createTravelPlanning,
     updateTravelPlanning,
     deleteTravelPlanning
