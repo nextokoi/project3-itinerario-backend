@@ -1,5 +1,6 @@
+const Flight = require('../models/flight.model')
 const TravelPlanning = require('../models/travelPlanning.model')
-
+const User = require('../models/user.model')
 
 
 const getAllTravelPlannings = async (req, res) => {
@@ -28,23 +29,43 @@ const getOneTravelPlanning = async (req, res) => {
     }
 }
 
+// const getOwnTravelPlanning = async (req, res) => {
+//     try {
+//         const travelPlanning = await TravelPlanning.findAll({
+//             where:{
+//                 userId : res.locals.user.id
+//             }
+//             })
+//         if (travelPlanning) {
+//             return res.status(200).json(travelPlanning)
+//         } else {
+//             return res.status(404).send("TravelPlanning not found")
+//         }
+//     } catch (error) {
+//         res.status(500).json({ message: error.message })
+//     }
+// }
+
 const getOwnTravelPlanning = async (req, res) => {
     try {
-        const travelPlanning = await TravelPlanning.findAll({
-            where:{
-                userId : res.locals.user.id
-            }
-            })
-        if (travelPlanning) {
-            return res.status(200).json(travelPlanning)
+        const userId = res.locals.user.id;
+        const user = await User.findByPk(userId, {
+            include: [{
+                model: TravelPlanning// Reemplaza 'travelPlannings' con el nombre correcto de la relación si es diferente
+
+            }]
+        });
+
+        if (user) {
+            return res.status(200).json(user.travelPlannings); // Asumiendo el nombre correcto de la relación
         } else {
-            return res.status(404).send("TravelPlanning not found")
+            return res.status(404).send("Travel Planning not found");
         }
     } catch (error) {
-        res.status(500).json({ message: error.message })
+        res.status(500).json({ message: error.message });
     }
-}
 
+}
 
 const createTravelPlanning = async (req, res) => {
     try {
