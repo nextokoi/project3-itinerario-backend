@@ -28,6 +28,9 @@ const Activity = connection.define('activity',{
     },
     imageURL : {
         type: DataTypes.STRING
+    },
+    price : {
+        type : DataTypes.DOUBLE
     }
 },{
     timestamps : false
