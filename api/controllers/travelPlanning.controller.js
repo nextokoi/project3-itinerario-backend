@@ -1,4 +1,5 @@
-const Flight = require('../models/flight.model')
+
+const TravelLocation = require('../models/travelLocation.model')
 const TravelPlanning = require('../models/travelPlanning.model')
 const User = require('../models/user.model')
 
@@ -29,30 +30,13 @@ const getOneTravelPlanning = async (req, res) => {
     }
 }
 
-// const getOwnTravelPlanning = async (req, res) => {
-//     try {
-//         const travelPlanning = await TravelPlanning.findAll({
-//             where:{
-//                 userId : res.locals.user.id
-//             }
-//             })
-//         if (travelPlanning) {
-//             return res.status(200).json(travelPlanning)
-//         } else {
-//             return res.status(404).send("TravelPlanning not found")
-//         }
-//     } catch (error) {
-//         res.status(500).json({ message: error.message })
-//     }
-// }
-
 const getOwnTravelPlanning = async (req, res) => {
     try {
         const userId = res.locals.user.id;
         const user = await User.findByPk(userId, {
             include: [{
-                model: TravelPlanning// Reemplaza 'travelPlannings' con el nombre correcto de la relación si es diferente
-
+                model: TravelPlanning, // Reemplaza 'travelPlannings' con el nombre correcto de la relación si es diferente
+                include: { model: TravelLocation }
             }]
         });
 

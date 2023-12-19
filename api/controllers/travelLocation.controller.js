@@ -26,7 +26,6 @@ const getOneTravelLocation = async (req, res) => {
     }
 }
 
-
 const createTravelLocation = async (req, res) => {
     try {
         const travelLocation = await TravelLocation.create(req.body)

@@ -12,13 +12,12 @@ const {
 const { checkAdmin } = require('../middlewares/authorization.middleware')
 
 router
-    .get('/', getAllTravelPlannings)
     .get('/profile', getOwnTravelPlanning)
+    .get('/', getAllTravelPlannings)
     .get('/:travelPlanningId', getOneTravelPlanning)
     .post('/', createTravelPlanning)
     .put('/:travelPlanningId', updateTravelPlanning)
     .delete('/:travelPlanningId', deleteTravelPlanning)
-
 
 module.exports = router
 

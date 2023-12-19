@@ -35,7 +35,6 @@ const addRelationsToModels = () => {
 
         console.log('Relations created!')
 
-
     } catch (error) {
 
         console.log(error)
