@@ -11,15 +11,15 @@ This project will be about travel itinerary management, where the user will be a
 
 ### Tables
 
-![database](https://github.com/nextokoi/project3-itinerario/assets/85761293/d1889c57-bdbd-459a-9ca0-e2d3e042d6b8)
+![database](https://github.com/nextokoi/project3-itinerario-backend/assets/85761293/186fc7d2-fc84-4626-9b11-5517b650d367)
 
 
 ### User Signup/Login
 
 | METHOD | ENDPOINT          | TOKEN | ROLE  | DESCRIPTION        | POST PARAMS                                                                                                         | RETURNS                |
 |--------|-------------------|-------|-------|--------------------|---------------------------------------------------------------------------------------------------------------------|------------------------|
-| POST   | /auth/signup      | -     | user  | User Signup        |   `userName`, `password`, `role`, `email`                                                      | { token: `token` }     |
-| POST   | /auth/login       | -     | user  | User Login         |   (`userName`|| `email`), `password`                                                                               | { token: `token` }     |
+| POST   | /auth/signup      | -     | user  | User Signup        |   `username`, `password`, `email`                                                      | { token: `token` }     |
+| POST   | /auth/login       | -     | user  | User Login         |   `username or email`, `password`                                                                            | { token: `token` }     |
 
 
 ### User Endpoints
@@ -30,7 +30,7 @@ This project will be about travel itinerary management, where the user will be a
 | GET    | /user/profile      | YES   | user  | Get Own Profile           |                                                                                                                     | {user}                            
 | GET    | /user/:userId      | YES   | admin | Get One User              |                                                                                                                     | {user}                            |
 | POST   | /user              | YES   | admin | Create one User           |  `username`, `password`, `role`, `email`                                                                            | {user}                            |
-| PUT    | /user/profile      | YES   | user  | Update own profile        |  `username`,  `role`, `email`                                                                                       | {message: 'Profile updated'}      |
+| PUT    | /user/profile      | YES   | user  | Update own profile        |  `username`, `email`                                                                                       | {message: 'Profile updated'}      |
 | PUT    | /user/password     | YES   | user  | Reset password            |  `newPassword`, `repeatPassword`                                                                                    | { message: 'Password updated' }   |
 | PUT    | /user/:userId      | YES   | admin | Update one user           |  `username`, `password`, `role`, `email`                                                                            | {message: 'User updated'}         |
 | DELETE | /user/:userId      | YES   | admin | Delete one user           |                                                                                                                     | {message: 'User deleted'}         |

@@ -5,30 +5,32 @@ const { DataTypes } = require('sequelize')
 const Activity = connection.define('activity',{
     name : {
         type : DataTypes.STRING,
-        notNull : true,
-        unique: true
+        notNull : true
     },
     direction : {
-        type: DataTypes.STRING,
-        unique: true, 
-        notNull: true,
-        validate: { isEmail: true }
+        type: DataTypes.STRING
     },
     category : {
         type : DataTypes.STRING,
         notNull : true
     },
     isActivity : {
-        type: DataTypes.ENUM('admin', 'user'),
-        defaultValue : "user"
+        type: DataTypes.BOOLEAN,
+        notNull : true
     },
     rating : {
-        type : DataTypes.STRING,
-        notNull : true
+        type : DataTypes.DOUBLE,
+        
     },
     url : {
         type : DataTypes.STRING,
-        notNull : true
+        
+    },
+    imageURL : {
+        type: DataTypes.STRING
+    },
+    price : {
+        type : DataTypes.DOUBLE
     }
 },{
     timestamps : false
